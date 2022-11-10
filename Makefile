@@ -1,3 +1,9 @@
+# Custom options
+WEBCAM_RES_WIDTH=648
+WEBCAM_RES_HEIGHT=480
+WEIGHT_SAVE_INTERVAL=500
+
+# Default options
 GPU=0
 CUDNN=0
 CUDNN_HALF=0
@@ -57,6 +63,17 @@ OS := $(shell uname)
 # For Tesla GA10x cards, RTX 3090, RTX 3080, RTX 3070, RTX A6000, RTX A40 uncomment:
 # ARCH= -gencode arch=compute_86,code=[sm_86,compute_86]
 
+ifdef WEBCAM_RES_WIDTH
+CFLAGS+= -DWEBCAM_RES_WIDTH=$(WEBCAM_RES_WIDTH)
+endif
+
+ifdef WEBCAM_RES_HEIGHT
+CFLAGS+= -DWEBCAM_RES_HEIGHT=$(WEBCAM_RES_HEIGHT)
+endif
+
+ifdef WEIGHT_SAVE_INTERVAL
+CFLAGS+= -DWEIGHT_SAVE_INTERVAL=$(WEIGHT_SAVE_INTERVAL)
+endif
 
 VPATH=./src/
 EXEC=darknet
