@@ -606,10 +606,10 @@ extern "C" cap_cv* get_capture_webcam(int index)
     try {
         cap = new cv::VideoCapture(index);
 #ifdef WEBCAM_RES_WIDTH
-        cap->set(CV_CAP_PROP_FRAME_WIDTH, WEBCAM_RES_WIDTH);
+        cap->set(cv::CAP_PROP_FRAME_WIDTH, WEBCAM_RES_WIDTH);
 #endif
 #ifdef WEBCAM_RES_HEIGHT
-        cap->set(CV_CAP_PROP_FRAME_HEIGHT, WEBCAM_RES_HEIGHT);
+        cap->set(cv::CAP_PROP_FRAME_HEIGHT, WEBCAM_RES_HEIGHT);
 #endif
     }
     catch (...) {
